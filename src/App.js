@@ -12,8 +12,7 @@ class App extends Component {
         <div>
           <div><Route render={( {history} ) => (
             <button
-              onClick={() => { history.push('/addprofile') }}
-            >
+              onClick={() => { history.push('/addprofile') }}>
               Add Profile
             </button> 
           )} /></div>

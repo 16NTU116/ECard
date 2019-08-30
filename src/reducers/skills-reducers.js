@@ -1,8 +1,8 @@
 import { changeEditSkills, updateSkill, deleteSkill, addEmployeeProfile } from "../actions/action-type"
 
 const state = {
-    name : "Kanjar",
-    discription: "Shahzaib is",
+    name : "Shahzaib",
+    discription: "No need to Define",
     skill : ["React JS", "Node", "Redux"],
     skillEdit : false
 }

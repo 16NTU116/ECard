@@ -13,10 +13,12 @@ class CardBody extends Component {
                         this.props.employees.length > 0 ? this.props.employees[this.props.index].name : ""
                     }</h3>
                 </div>
+                <div style={styles.divDiscription}>
                 <p style={styles.p}>{
                     this.props.employees.length > 0 ? this.props.employees[this.props.index].discription : ""
                 }</p>
-                <CardSkills index={this.props.index} />
+                </div>
+                <div style={styles.divSkills} ><CardSkills index={this.props.index} /></div>
             </div>
         );
     }
@@ -42,5 +44,11 @@ const styles = {
     p : {
         marginTop : "30px",
         marginLeft : "40px"
+    },
+    divDiscription : {
+        width: "35%"
+    },
+    divSkills : {
+        marginLeft: "2%"
     }
 }

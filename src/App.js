@@ -28,12 +28,13 @@ export default connect(mapStateToProps, null)(App);
 
 const styles = {
   div: {
-      border: "2px solid black",
-      borderRadius: "4px",
-      marginTop : "30px",
-      width: "34%",
-      marginLeft: "33%",
-      marginRight: "33%"
+    border: "2px solid black",
+    borderRadius: "4px",
+    marginTop : "30px",
+    width: "40%",
+    marginLeft: "30%",
+    marginRight: "30%",
+    padding: "10px 10px"
   },
   button: {
     padding: "8px 10px",

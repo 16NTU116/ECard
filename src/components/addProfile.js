@@ -8,7 +8,7 @@ class AddProfile extends Component {
     profile: {
       name : "",
       discription : "",
-      skill : ["", "", ""]
+      skill : [""]
     }
   }
 
@@ -28,31 +28,15 @@ class AddProfile extends Component {
               let array = prevState.profile;
               array.discription = value;
               return { profile : array }})}} ></textarea>
-          <input style={putStyle.input} type="text" placeholder="Enter Your Skill 1 Name" onChange={(e) => {
-            // let array = this.state.profile.skill;
-            // array[0] = e.target.value;
-            // this.setState(() => ({ profile : array }));
+          {this.state.profile.skill.map( (prevState, index) =>(
+            <input style={putStyle.input} type="text" placeholder="Enter Your Skill" onChange={(e) => {
             const value = e.target.value;
-            this.setState(prevState => {
+            this.setState( (prevState) => {
               let array = prevState.profile.skill;
-              array[0] = value;
+              array[index] = value;
               return { profile : { ...prevState.profile, skill : array} }});
-            
-          }} />
-          <input style={putStyle.input} type="text" placeholder="Enter Your Skill 2 Name" onChange={(e) => {
-            const value = e.target.value;
-            this.setState(prevState => {
-              let array = prevState.profile.skill;
-              array[1] = value;
-              return { profile : { ...prevState.profile, skill : array} }});
-          }} />
-          <input style={putStyle.input} type="text" placeholder="Enter Your Skill 3 Name" onChange={(e) => {
-            const value = e.target.value;
-            this.setState(prevState => {
-              let array = prevState.profile.skill;
-              array[2] = value;
-              return { profile : { ...prevState.profile, skill : array} }});
-          }} />
+          }} />))}
+          <button style={putStyle.button} onClick={() => this.setState(prevState => ( { profile:  { ...prevState.profile, skill : prevState.profile.skill.concat("") }}))} >Add New Skill</button>
           <div>
             <button style={putStyle.button} onClick={() => {
               console.log("before", this.state.profile);

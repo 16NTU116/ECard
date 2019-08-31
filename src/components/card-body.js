@@ -9,18 +9,21 @@ class CardBody extends Component {
             <div style={styles.container}>
                 <div>
                     <img src={Avatar} style={styles.img} alt="AvatarPhoto" />
-                    <h3 style={styles.h3}>{this.props.name}</h3>
+                    <h3 style={styles.h3}>{
+                        this.props.employees.length > 0 ? this.props.employees[this.props.index].name : ""
+                    }</h3>
                 </div>
-                <p style={styles.p}>{this.props.discription}</p>
-                <CardSkills />
+                <p style={styles.p}>{
+                    this.props.employees.length > 0 ? this.props.employees[this.props.index].discription : ""
+                }</p>
+                <CardSkills index={this.props.index} />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    name: state.SkillReducer.name,
-    discription: state.SkillReducer.discription
+    employees: state.SkillReducer.employees,
   });
 
 export default connect(mapStateToProps, null)(CardBody);

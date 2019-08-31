@@ -9,12 +9,15 @@ class CardSkills extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   state = {
-    change: this.props.skills
+    change: this.props.employees.length > 0 ? this.props.employees[this.props.index].skill : []
   }
 
   handleChange() {
     if (this.props.enabled) {
-      return this.props.updateSkills(this.state.change);
+      return this.props.updateSkills({
+        index : this.props.index,
+        value : this.state.change
+      });
     }
   }
 
@@ -27,7 +30,9 @@ class CardSkills extends Component {
     this.setState({ change: array });
     console.log("After", this.state.change);
 
-    this.props.deleteSkills(this.state.change);
+    this.props.deleteSkills({
+      index : this.props.index, 
+      value : this.state.change});
   }
 
   render() {
@@ -58,7 +63,7 @@ class CardSkills extends Component {
 }
 
 const mapStateToProps = state => ({
-  skills: state.SkillReducer.skill,
+  employees: state.SkillReducer.employees,
   enabled: state.SkillReducer.skillEdit
 });
 

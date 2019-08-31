@@ -1,9 +1,7 @@
 import { changeEditSkills, updateSkill, deleteSkill, addEmployeeProfile } from "../actions/action-type"
 
 const state = {
-    name : "Shahzaib",
-    discription: "No need to Define",
-    skill : ["React JS", "Node", "Redux"],
+    employees : [],
     skillEdit : false
 }
 
@@ -11,19 +9,18 @@ const skillReducer = ( mState = clone(state), action) => {
     switch(action.type) {
         case addEmployeeProfile:
             console.log("Reached Here", action.payload);
-            mState.name = action.payload.name;
-            mState.discription = action.payload.discription;
-            mState.skill = action.payload.skill;
+            mState.employees.push(action.payload);
+            console.log("Reached Here", mState.employees);
             return clone(mState);
         case changeEditSkills:
             mState.skillEdit = !mState.skillEdit;
             return clone(mState);
         case updateSkill:
-            mState.skill = action.payload;
+            mState.employees[action.payload.index].skill = action.payload.value;
             return clone(mState);
         case deleteSkill:
             console.log("Before DeleteSkill", action.payload);
-            mState.skill = action.payload;
+            mState.employees[action.payload.index].skill = action.payload.value;
             console.log("After DeleteSkill", mState);
             return clone(mState);
 
